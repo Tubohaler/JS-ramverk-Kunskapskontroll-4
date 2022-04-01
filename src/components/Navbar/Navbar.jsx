@@ -17,9 +17,11 @@ const Navbar = ({ totalItems }) => {
       <AppBar position="static">
         <nav>
           <Link to="/">Home</Link>
+          <Link to="/login">Login</Link>
           <Link to="/products">Products</Link>
           <Link to="/cart">Cart</Link>
         </nav>
+
         <Toolbar sx={{ justifyContent: "space-between" }}>
           <img src={logo} alt="Cockasian.js" height="50px" />
           <IconButton aria-label="Show cart items" color="inherit">

@@ -2,10 +2,10 @@ import React from "react";
 import { useRecoilValue } from "recoil";
 
 import Product from "./Product/Product";
-import { productState } from "../../stores/products/atom";
+import { productsState } from "../../stores/products/atom";
 
 const Products = () => {
-  const products = useRecoilValue(productState);
+  const products = useRecoilValue(productsState);
   if (!products) return <div>loading...</div>;
   return (
     <div>

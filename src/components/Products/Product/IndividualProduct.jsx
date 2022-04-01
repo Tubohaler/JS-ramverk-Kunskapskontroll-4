@@ -1,14 +1,14 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useRecoilValue, useRecoilState } from "recoil";
-import { productState } from "../../../stores/products/atom";
+import { productsState } from "../../../stores/products/atom";
 import Container from "@mui/material/Container";
 import { cartState } from "../../../stores/Cart/atom";
 
 function IndividualProduct() {
   const params = useParams();
 
-  const products = useRecoilValue(productState);
+  const products = useRecoilValue(productsState);
   const product = products.find((p) => p.id === parseInt(params.productId));
   const [cart, setCart] = useRecoilState(cartState);
 
