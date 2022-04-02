@@ -1,8 +1,17 @@
 import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-import { Home, Products, Navbar, Cart } from "./components";
-import Login from "./components/Login/Login";
-import IndividualProduct from "./components/Products/Product/IndividualProduct";
+import {
+  Home,
+  Products,
+  IndividualProduct,
+  Navbar,
+  Cart,
+  Admin,
+  Login,
+  Profile,
+  Register,
+} from "./components";
+
 import { cartState } from "./stores/Cart/atom";
 import { useRecoilValue } from "recoil";
 import { login } from "./api";
@@ -18,10 +27,17 @@ function App() {
     <div>
       <Navbar totalItems={itemsInCart.length} />
 
+      {/* Behöver jag ha "exact" i min path? */}
       <Routes>
         <Route exact path="/" element={<Home />} />
 
+        <Route exact path="/register" element={<Register />} />
+
+        <Route path="/admin" element={<Admin />} />
+
         <Route path="/login" element={<Login />} />
+
+        <Route path="/profile" element={<Profile />} />
 
         <Route exact path="/products" element={<Products />} />
 

@@ -13,6 +13,7 @@ function Login() {
 
   async function handleLogin() {
     const data = await login(username, password);
+    console.log(data);
 
     if (data.status === 200) {
       setAuth({

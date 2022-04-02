@@ -1,4 +1,9 @@
 export { default as Home } from "./Home/Home";
 export { default as Navbar } from "./Navbar/Navbar";
 export { default as Products } from "./Products/Products";
+export { default as IndividualProduct } from "./Products/Product/IndividualProduct";
 export { default as Cart } from "./Cart/Cart";
+export { default as Admin } from "./Login/Admin/Admin";
+export { default as Register } from "./Login/Register";
+export { default as Login } from "./Login/Login";
+export { default as Profile } from "./Login/Profile";

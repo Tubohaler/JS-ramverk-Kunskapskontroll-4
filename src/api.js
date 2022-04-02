@@ -1,12 +1,14 @@
 import axios from "axios";
 
 export async function login(username, password) {
-  const data = await axios.post("https://k4backend.osuka.dev/auth/login", {
-    username: "mor_2314",
-    password: "83r5^_",
-  });
+  const data = await axios
+    .post("https://k4backend.osuka.dev/auth/login", {
+      username: "mor_2314",
+      password: "83r5^_",
+    })
+    .then((res) => res);
 
-  return data;
+  return data.data;
 }
 
 export async function register() {
