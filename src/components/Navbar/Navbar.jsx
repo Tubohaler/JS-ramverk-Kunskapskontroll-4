@@ -21,6 +21,7 @@ const Navbar = ({ totalItems }) => {
       <AppBar position="static">
         <nav>
           <Link to="/">Home</Link>
+          <Link to="/register">Register</Link>
           <Link to="/login">Login</Link>
           <Link to="/products">Products</Link>
           <Link to="/cart">Cart</Link>
@@ -28,7 +29,6 @@ const Navbar = ({ totalItems }) => {
             <Link to="/profile">Profile</Link>
           ) : null}
           {auth.user.role === "admin" ? <Link to="/admin">Admin</Link> : null}
-          <Link to="/register">Register</Link>
         </nav>
 
         <Toolbar sx={{ justifyContent: "space-between" }}>

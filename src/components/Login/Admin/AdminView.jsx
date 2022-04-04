@@ -35,7 +35,7 @@ function AdminView() {
             value={productSearch}
             onChange={(e) => setProductSearch(e.target.value)}
           />
-          {products
+          {/* {products
             .filter((product) =>
               product.title.toLowerCase().includes(productSearch.toLowerCase())
             )
@@ -43,7 +43,7 @@ function AdminView() {
               <AccordionDetails key={product.id}>
                 <Typography>{product.title}</Typography>
               </AccordionDetails>
-            ))}
+            ))} */}
         </Accordion>
         <Accordion>
           <AccordionSummary
