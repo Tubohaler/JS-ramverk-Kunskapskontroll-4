@@ -20,7 +20,9 @@ function IndividualProduct() {
     setCart([...cart, NewCartItem]);
   }
 
-  return (
+  return !product ? (
+    "Product not found"
+  ) : (
     <Container>
       <img src={product.image} alt={product.title} />
       <div>

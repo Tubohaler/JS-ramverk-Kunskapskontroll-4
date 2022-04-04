@@ -1,15 +1,24 @@
 import React from "react";
 import { authState } from "../../recoil/auth/atom";
-import { useRecoilValue } from "recoil";
+import { useNavigate } from "react-router-dom";
+import { useRecoilValue, useResetRecoilState } from "recoil";
 import TableContainer from "@mui/material/TableContainer";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import Button from "@mui/material/Button";
 
 function Profile() {
   const { user } = useRecoilValue(authState);
+  const resetAuth = useResetRecoilState(authState);
+  const navigate = useNavigate();
+
+  function handleLogout() {
+    resetAuth();
+    navigate("/login");
+  }
 
   return (
     <>
@@ -65,6 +74,7 @@ function Profile() {
           </TableBody>
         </Table>
       </TableContainer>
+      <Button onClick={handleLogout}>Log out</Button>
     </>
   );
 }
