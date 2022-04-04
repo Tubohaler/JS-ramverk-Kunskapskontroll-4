@@ -1,43 +1,50 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useRecoilState } from "recoil";
-import { login } from "../../../api";
+import { useRecoilValue, useRecoilState } from "recoil";
+import { login, getAllUsers } from "../../../api";
 import { authState } from "../../../recoil/auth/atom";
+import { productsState } from "./../../../stores/products/atom";
 
 function Admin() {
-  const [auth, setAuth] = useRecoilState(authState);
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [users, setUsers] = useState([]);
 
-  const navigate = useNavigate();
+  const fetchUsers = async () => {
+    try {
+      const data = await getAllUsers();
+      setUsers(data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
-  async function handleLogin() {
-    const data = await login(username, password);
-    console.log(data);
+  useEffect(() => {
+    fetchUsers();
+  }, []);
 
-    setAuth({ ...auth, admin: data });
-    navigate("/admin");
-  }
+  const products = useRecoilValue(productsState);
+  if (null) return <div>loading...</div>;
 
   return (
     <div>
-      <h2>Logga in</h2>
+      {users.length === 0
+        ? "Loading Users..."
+        : users.map((user) => {
+            return (
+              <div key={`user-${user.id}`}>
+                id: {user.id} - username: {user.username}
+              </div>
+            );
+          })}
 
-      <div>
-        <input
-          placeholder="username"
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <input
-          placeholder="password"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button onClick={handleLogin}>Logga in</button>
-      </div>
+      {products.length === 0
+        ? "Loading..."
+        : products.map((product) => {
+            return (
+              <div key={`user-${product.id}`}>
+                id: {product.id} - {product.title}
+              </div>
+            );
+          })}
     </div>
   );
 }

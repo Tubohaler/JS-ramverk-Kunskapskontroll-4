@@ -39,6 +39,11 @@ export async function admin(username, password) {
   return wtf.data;
 }
 
+export async function getAllUsers() {
+  const users = await axios.get("https://k4backend.osuka.dev/users");
+  return users.data;
+}
+
 export async function getUserById(id) {
   const res = await axios.get(`https://k4backend.osuka.dev/users/${id}`);
   return res.data;
