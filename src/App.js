@@ -29,9 +29,9 @@ function App() {
 
       {/* Behöver jag ha "exact" i min path? */}
       <Routes>
-        <Route exact path="/" element={<Home />} />
+        <Route path="/" element={<Home />} />
 
-        <Route exact path="/register" element={<Register />} />
+        <Route path="/register" element={<Register />} />
 
         <Route path="/admin" element={<Admin />} />
 
@@ -39,9 +39,9 @@ function App() {
 
         <Route path="/profile" element={<Profile />} />
 
-        <Route exact path="/products" element={<Products />} />
+        <Route path="/products" element={<Products />} />
 
-        <Route exact path="/products/:id" element={<IndividualProduct />} />
+        <Route path="/product/:productId" element={<IndividualProduct />} />
 
         <Route exact path="/cart" element={<Cart />} />
       </Routes>

@@ -7,6 +7,10 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+
+import Link from "@mui/material/Link";
+import { Link as RouterLink } from "react-router-dom";
+
 import { useRecoilState } from "recoil";
 import { cartState } from "../../../stores/Cart/atom";
 
@@ -32,13 +36,14 @@ const Product = ({ product }) => {
             </Typography>
             <Typography variant="h5">{product.price}</Typography>
           </div>
-          <Typography
-            dangerouslySetInnerHTML={{ __html: product.description }}
-            variant="body2"
-            color="textSecondary"
-          />
+          <Typography variant="body2" color="textSecondary">
+            {product.description}
+          </Typography>
         </CardContent>
         <CardActions disableSpacing>
+          <Link component={RouterLink} to={`/product/${product.id}`}>
+            Read more
+          </Link>
           <IconButton
             onClick={() => handleAddToCart()}
             aria-label="Add to the Cart"
