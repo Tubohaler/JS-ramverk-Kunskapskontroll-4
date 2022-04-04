@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import { getUserById, login } from "../../api";
 import { authState } from "../../recoil/auth/atom";
 
 function Login() {
-  const setAuth = useRecoilState(authState);
+  const setAuth = useSetRecoilState(authState);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
