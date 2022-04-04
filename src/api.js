@@ -1,12 +1,10 @@
 import axios from "axios";
 
 export async function login(username, password) {
-  const data = await axios
-    .post("https://k4backend.osuka.dev/auth/login", {
-      username: "mor_2314",
-      password: "83r5^_",
-    })
-    .then((res) => res);
+  const data = await axios.post("https://k4backend.osuka.dev/auth/login", {
+    username: username,
+    password: password,
+  });
 
   return data.data;
 }
@@ -31,4 +29,17 @@ export async function register() {
   });
 
   console.log(res);
+}
+
+export async function admin(username, password) {
+  const wtf = await axios.post("https://k4backend.osuka.dev/auth/login", {
+    username: username,
+    password: password,
+  });
+  return wtf.data;
+}
+
+export async function getUserById(id) {
+  const res = await axios.get(`https://k4backend.osuka.dev/users/${id}`);
+  return res.data;
 }
