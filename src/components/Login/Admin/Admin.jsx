@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { useRecoilValue, useRecoilState } from "recoil";
-import { login, getAllUsers } from "../../../api";
-import { authState } from "../../../recoil/auth/atom";
+import { useRecoilValue } from "recoil";
+import { getAllUsers } from "../../../api";
 import { productsState } from "./../../../stores/products/atom";
 
 function Admin() {
