@@ -5,7 +5,7 @@ import { getUserById, login } from "../../api";
 import { authState } from "../../recoil/auth/atom";
 
 function Login() {
-  const [auth, setAuth] = useRecoilState(authState);
+  const setAuth = useRecoilState(authState);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
